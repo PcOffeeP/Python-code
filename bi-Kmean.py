@@ -57,3 +57,34 @@ def split_cluster(points):
 
     return cluster0, cluster1
 
+def bisecting_kmeans(points, N):
+    clusters = [points]
+
+    best_gain = -1
+    best_index = -1
+    best_children = None
+
+    while len(clusters) < N:
+        # 1. 遍历当前所有 cluster
+        for i, cluster in enumerate(clusters):
+            # 2. 每个 cluster 都调用 split_cluster() 试拆
+            child1, child2 = split_cluster(cluster)
+            # 3. 计算：
+            #    gain = parent_sse - child1_sse - child2_sse
+            gain = calc_sse(cluster) - calc_sse(child1) - calc_sse(child2)
+            # 4. 保存 gain 最大的候选
+            if gain > best_gain:
+                best_gain = gain
+                best_index = i
+                best_children = (child1, child2)
+
+        # 5. 真正删除 parent，加入两个 children
+        if best_children:
+            clusters.pop(best_index)
+            clusters.extend(best_children)
+    return clusters
+
+if __name__ == '__main__':
+    points = input("请输入点集（格式：x1,y1;x2,y2;...）：")
+    clusters = bisecting_kmeans(points, 3)
+    print(clusters)

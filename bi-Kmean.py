@@ -23,25 +23,35 @@ def calc_sse(points):
 def split_cluster(points):
     c1 = max(points, key=lambda p: p[0])
     c2 = min(points, key=lambda p: p[0])
+    old_tag = None
 
-    cluster0 = []
-    cluster1 = []
-    tag = []
+    for _ in range(1000):
+        cluster0 = []
+        cluster1 = []
+        tag = []
 
-    for point in points:
-        d1 = dist2(point, c1)
-        d2 = dist2(point, c2)
+        for point in points:
+            d1 = dist2(point, c1)
+            d2 = dist2(point, c2)
 
-        if d1 < d2:
-            cluster0.append(point)
-            tag.append(0)
-        else:
-            cluster1.append(point)
-            tag.append(1)
+            if d1 < d2:
+                cluster0.append(point)
+                tag.append(0)
+            else:
+                cluster1.append(point)
+                tag.append(1)
 
-    new_c1 = centroid(cluster0)
-    new_c2 = centroid(cluster1)
+        new_c1 = centroid(cluster0)
+        new_c2 = centroid(cluster1)
 
-    c1 = new_c1
-    c2 = new_c2
+        tag_same = (old_tag == tag)
+        center_same = (new_c1 == c1 and new_c2 == c2)
+
+        if tag_same and center_same:
+            break
+        c1 = new_c1
+        c2 = new_c2
+        old_tag = tag
+
+    return cluster0, cluster1
 

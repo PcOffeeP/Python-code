@@ -45,7 +45,9 @@ def split_cluster(points):
         new_c2 = centroid(cluster1)
 
         tag_same = (old_tag == tag)
-        center_same = (new_c1 == c1 and new_c2 == c2)
+        center_same = (
+            dist2(c1, new_c1) < 1e-12 and dist2(c2, new_c2) < 1e-12
+        )
 
         if tag_same and center_same:
             break

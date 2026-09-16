@@ -60,11 +60,11 @@ def split_cluster(points):
 def bisecting_kmeans(points, N):
     clusters = [points]
 
-    best_gain = -1
-    best_index = -1
-    best_children = None
-
     while len(clusters) < N:
+        best_gain = -1
+        best_index = -1
+        best_children = None
+        
         # 1. 遍历当前所有 cluster
         for i, cluster in enumerate(clusters):
             # 2. 每个 cluster 都调用 split_cluster() 试拆

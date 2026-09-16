@@ -64,10 +64,12 @@ def bisecting_kmeans(points, N):
         best_gain = -1
         best_index = -1
         best_children = None
-        
+
         # 1. 遍历当前所有 cluster
         for i, cluster in enumerate(clusters):
             # 2. 每个 cluster 都调用 split_cluster() 试拆
+            if len(cluster) <= 1:
+                continue
             child1, child2 = split_cluster(cluster)
             # 3. 计算：
             #    gain = parent_sse - child1_sse - child2_sse
@@ -77,6 +79,11 @@ def bisecting_kmeans(points, N):
                 best_gain = gain
                 best_index = i
                 best_children = (child1, child2)
+            elif abs(gain - best_gain) < 1e-12:
+                # 如果 gain 相同，选择点数更多的 cluster
+                if len(cluster) > len(clusters[best_index]):
+                    best_index = i
+                    best_children = (child1, child2)
 
         # 5. 真正删除 parent，加入两个 children
         if best_children:
@@ -85,6 +92,14 @@ def bisecting_kmeans(points, N):
     return clusters
 
 if __name__ == '__main__':
-    points = input("请输入点集（格式：x1,y1;x2,y2;...）：")
-    clusters = bisecting_kmeans(points, 3)
+    N = int(input("请输入要分割的簇数量："))
+    L = int(input("请输入点的数量："))
+    points = input("请输入点的坐标（格式：x1,y1 x2,y2 ...）：").split()
+    points = [tuple(map(float, p.split(','))) for p in points]
+
+    if len(points) != L:
+        print("输入的点数量与指定的数量不符！")
+    else:
+        clusters = bisecting_kmeans(points, N)
+
     print(clusters)

@@ -89,17 +89,26 @@ def bisecting_kmeans(points, N):
         if best_children:
             clusters.pop(best_index)
             clusters.extend(best_children)
+
+        sizes = sorted(
+            [len(cluster) for cluster in clusters],
+            reverse=True
+        )
+
+        print(*sizes)
     return clusters
 
 if __name__ == '__main__':
     N = int(input("请输入要分割的簇数量："))
     L = int(input("请输入点的数量："))
-    points = input("请输入点的坐标（格式：x1,y1 x2,y2 ...）：").split()
-    points = [tuple(map(float, p.split(','))) for p in points]
+
+    points = []
+
+    for _ in range(L):
+        x, y = map(float, input().split())
+        points.append((x, y))
 
     if len(points) != L:
         print("输入的点数量与指定的数量不符！")
     else:
         clusters = bisecting_kmeans(points, N)
-
-    print(clusters)

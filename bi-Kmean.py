@@ -99,8 +99,8 @@ def bisecting_kmeans(points, N):
     return clusters
 
 if __name__ == '__main__':
-    N = int(input("请输入要分割的簇数量："))
-    L = int(input("请输入点的数量："))
+    N = int(input())
+    L = int(input())
 
     points = []
 
@@ -108,7 +108,5 @@ if __name__ == '__main__':
         x, y = map(float, input().split())
         points.append((x, y))
 
-    if len(points) != L:
-        print("输入的点数量与指定的数量不符！")
     else:
         clusters = bisecting_kmeans(points, N)

@@ -1,7 +1,7 @@
 [project]
 name = "python-code"
 version = "0.1.0"
-description = "Add your description here"
+description = "用于 AI 与算法机考训练，并保存长期学习状态的 Workspace"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []

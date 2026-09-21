@@ -1,4 +1,4 @@
-# Python-generated files
+# Python 生成文件
 __pycache__/
 *.py[oc]
 build/
@@ -6,5 +6,8 @@ dist/
 wheels/
 *.egg-info
 
-# Virtual environments
+# 虚拟环境
 .venv
+
+# Jupyter 临时文件
+.ipynb_checkpoints/

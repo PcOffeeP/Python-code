@@ -1,0 +1,48 @@
+updated_at: 2026-09-17
+
+level_scale:
+  0: unknown
+  1: understand
+  2: guided_coding
+  3: independent_coding
+  4: timed_coding
+  5: retained
+
+tracks:
+  algorithm_coding:
+    bisecting_kmeans:
+      level: 2
+      evidence: 已在引导支持下完成一次；尚未进行空白重写。
+    clustering_fundamentals:
+      level: 2
+      evidence: 已实现距离平方、质心、SSE、Assignment、Update 与收敛判断。
+    split_gain_and_tie_breaking:
+      level: 2
+      evidence: 已在引导下实现 gain 选择与确定性的 equal-gain 处理。
+
+  ai_coding:
+    transformer_encoder:
+      level: 0
+      evidence: 尚未开始。
+    tensor_shape_reasoning:
+      level: 0
+      evidence: 尚无已记录的实现 Attempt。
+
+  python:
+    iteration_and_enumerate:
+      level: 2
+      evidence: 已在完成的聚类解法中使用直接迭代与 enumerate。
+    key_functions_and_lambda:
+      level: 2
+      evidence: 已使用带 key function 的 max/min 初始化质心。
+    standard_input_parsing:
+      level: 2
+      evidence: 已将解法转换为无交互提示的 Online Judge 输入解析。
+
+  exam_execution:
+    online_judge_format:
+      level: 2
+      evidence: 已在引导下完成一次无交互提示的标准输入输出实现。
+    timed_implementation:
+      level: 0
+      evidence: 尚无限时重写记录。

@@ -1,0 +1,30 @@
+updated_at: 2026-09-17
+
+items:
+  - id: bisecting-kmeans-blank-2026-09-19
+    problem: bisecting-kmeans
+    review_type: blank_reimplementation
+    due: 2026-09-19
+    status: pending
+    focus: 不查看 solution.py，完整重写解法。
+
+  - id: bisecting-kmeans-python-2026-09-20
+    problem: bisecting-kmeans
+    review_type: python_pattern_review
+    due: 2026-09-20
+    status: pending
+    focus: 复习迭代、enumerate、key function 与 point 解包。
+
+  - id: bisecting-kmeans-timed-2026-09-22
+    problem: bisecting-kmeans
+    review_type: timed_reimplementation
+    due: 2026-09-22
+    status: pending
+    focus: 在时间限制内重新实现，并验证 Online Judge 输出。
+
+  - id: bisecting-kmeans-concept-2026-09-26
+    problem: bisecting-kmeans
+    review_type: concept_review
+    due: 2026-09-26
+    status: pending
+    focus: 不查看资料，解释 SSE、收敛、Split Gain 与 tie-breaking。

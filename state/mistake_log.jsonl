@@ -1,0 +1,8 @@
+{"id":"bisecting-kmeans-001","observed_at":"2026-09-17","problem":"bisecting-kmeans","category":"python_iteration","pattern":"不确定何时应直接遍历值，何时应使用 enumerate。","remediation":"除非需要索引，否则直接迭代；需要按位置修改或选择时使用 enumerate。","status":"review_pending"}
+{"id":"bisecting-kmeans-002","observed_at":"2026-09-17","problem":"bisecting-kmeans","category":"data_shape","pattern":"混淆了单个标量坐标与完整 point。","remediation":"在变量旁标注预期数据形状，并将 point 明确解包为 x、y。","status":"review_pending"}
+{"id":"bisecting-kmeans-003","observed_at":"2026-09-17","problem":"bisecting-kmeans","category":"state_scope","pattern":"每轮外层拆分迭代开始时，没有重置临时最佳候选状态。","remediation":"在每次 while 循环开始时初始化 best gain、index 与 children。","status":"review_pending"}
+{"id":"bisecting-kmeans-004","observed_at":"2026-09-17","problem":"bisecting-kmeans","category":"numerical_precision","pattern":"比较浮点收敛状态与相同 gain 时没有使用容差。","remediation":"使用具名容差比较中心移动距离与 gain。","status":"review_pending"}
+{"id":"bisecting-kmeans-005","observed_at":"2026-09-17","problem":"bisecting-kmeans","category":"input_parsing","pattern":"Online Judge 输入最初包含交互提示或题目未要求的校验输出。","remediation":"将 solution.py 限定为题目要求的标准输入输出约定。","status":"applied_once"}
+{"id":"bisecting-kmeans-006","observed_at":"2026-09-17","problem":"bisecting-kmeans","category":"edge_case","pattern":"单节点簇无法继续拆分。","remediation":"评估候选簇时跳过只包含一个点的簇。","status":"applied_once"}
+{"id":"bisecting-kmeans-007","observed_at":"2026-09-17","problem":"bisecting-kmeans","category":"tie_breaking","pattern":"相同的 Split Gain 需要确定性的次级规则。","remediation":"在容差范围内优先选择更大的父簇，否则保持原遍历顺序。","status":"review_pending"}
+{"id":"bisecting-kmeans-008","observed_at":"2026-09-17","problem":"bisecting-kmeans","category":"output_format","pattern":"诊断或教学文字会导致 Online Judge 输出无效。","remediation":"每次接受拆分后，只输出按降序排列的簇大小。","status":"applied_once"}

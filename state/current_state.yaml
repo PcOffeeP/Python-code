@@ -1,0 +1,25 @@
+updated_at: 2026-09-17
+
+current_goal: 通过可重复执行的复习流程，建立独立完成 AI Coding 与算法题的能力。
+
+current_focus:
+  track: algorithm_coding
+  topic: bisecting_kmeans_retention
+  stage: review_scheduled
+
+recent_problem:
+  name: bisecting-kmeans
+  status: completed_once
+  next_action: 不查看引导提示，从空白文件开始重新实现。
+  review_after: 2026-09-19
+
+current_weaknesses:
+  - 区分标量值与完整 point。
+  - 在正确的循环层级重置临时最佳候选状态。
+  - 正确使用浮点容差与确定性 tie-breaking。
+  - 处理单节点簇与 Online Judge 输入输出边界。
+
+next_tasks:
+  - 完成已安排的 Bisecting K-Means 空白重写。
+  - 复习 Python 迭代、enumerate 与 key function 模式。
+  - 从 Q/K/V 和明确的张量形状约定开始学习 Transformer Encoder。

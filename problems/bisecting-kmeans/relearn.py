@@ -22,6 +22,7 @@ def compute_centroid(cluster, old_centroid):
 
 points = [(1, 1), (8, 8), (2, 2), (9, 9), (5, 5)]
 centers = [(0, 0), (10, 10)]
+esp = 1e-6
 
 for _ in range(100):  # Iterate a few times to refine the clusters
     cluster0, cluster1 = assign_points(points, centers)
@@ -32,9 +33,8 @@ for _ in range(100):  # Iterate a few times to refine the clusters
     new_centers = [compute_centroid(cluster0, centers[0]), compute_centroid(cluster1, centers[1])]
     print("New Centers:", new_centers)
 
-    if count_dist(new_centers[0], centers[0]) < 1e-6 and count_dist(new_centers[1], centers[1]) < 1e-6:
-        break  # Stop if centers do not change significantly
-
     centers = new_centers
+    if count_dist(new_centers[0], centers[0]) < esp**2 and count_dist(new_centers[1], centers[1]) < esp**2:
+        break  # Stop if centers do not change significantly
 
 print("Final Centers:", centers)

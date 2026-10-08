@@ -33,8 +33,11 @@ for _ in range(100):  # Iterate a few times to refine the clusters
     new_centers = [compute_centroid(cluster0, centers[0]), compute_centroid(cluster1, centers[1])]
     print("New Centers:", new_centers)
 
+    move_dist0 = count_dist(new_centers[0], centers[0])
+    move_dist1 = count_dist(new_centers[1], centers[1])
+
     centers = new_centers
-    if count_dist(new_centers[0], centers[0]) < esp**2 and count_dist(new_centers[1], centers[1]) < esp**2:
+    if move_dist0 < esp**2 and move_dist1 < esp**2:
         break  # Stop if centers do not change significantly
 
 print("Final Centers:", centers)
